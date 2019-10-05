@@ -1,4 +1,3 @@
-// Copyright Descultu Cristian Petrisor cristicrisx@gmail.com
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
