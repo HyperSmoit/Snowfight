@@ -1,0 +1,27 @@
+ 	For the first, I've made 2 functions to read the number 
+ of the players(read_players) and the content of the matrix(read_surface). Both arrays, surface and v_players, are dynamic allocated. For both functions I used 2 temporary arrays, one for each, to read their elements from the file and at the end of the function to send these to the main arrays. As the arrays, the functions are their struct type
+
+ 	After the reading functions are called in the main
+ function I check if so far anybody won (this can be done if all the other players, except for 1, have been spawned outside of the glacier). 
+
+ 	Then I had compared each command with either "MOVE",
+ "SNOWSTORM", "MELTDOWN" or "PRINT_SCOREBOARD", because "fscanf" reads until it find a blank space or the end of the line
+
+ 	For each of these commands I've made a function to do
+ what it has been asked to. The most complex one was the one
+ for movement. It contains more functions such as "falling_off_glacier" (checks if a player, after he moved
+ had fell off the glacier), "change_gloves" (if in a cell an
+ Elf finds a better pair of gloves with a higher dmg, he
+ changes his with those), "fight" (checks if 2 Elves are in
+ the same cell. In this case, they fight as the problem demands).
+  	
+  	Before I could have printed the scoreboard, I had to
+sort players by their score and in case it was the same, by their name alphabetically.
+
+	To find X, Y, radius and the damage of the Snowstorm, I started by finding the last 8 bits which meant X value, then i 
+shifted the number by 8 bits to the right and so on until I had found all of these. Afterwards, I just did what the problem asked to.
+
+	To meltdown the glacier, i had to decrease radius by 1 unit, then to allocate a temporary matrix having it's radius the new
+radius. After that, i decreased players' coordinates because the new edge of the glacier is the old one but 1 row and column
+more inside. After i checked if anybody died or not, i copied over the temporary matrix, the old matrix after I made those
+changes and freed the latter one.
